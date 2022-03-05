@@ -3,18 +3,26 @@
 		<h3 class="w100 mb15 px5">Registro de Pokemon</h3>
 	</div>
 	<div class="fila x_centro">
-		<form class="formulario" #frmRegistro="ngForm" (ngSubmit)="savePokemon()">
+		<form class="formulario" #frmRegistro="ngForm" (ngSubmit)="savePokemon(frmRegistro)" validate>
 			<div class="w100 fila x_centro">
 				<div class="w50 fila y_centro px10 mb15">
 					<label>Nombre</label>
-					<input type="text" name="name" #name="ngModel" [(ngModel)]="pokemon.name" required [ngClass]="{ 'borde-error': name.touched && name.invalid }" />
-					<div *ngIf="name.touched && name.invalid" class="w100 text-center">
+					<input type="text" name="name" #name="ngModel" [(ngModel)]="pokemon.name" required [ngClass]="{ 'borde-error': (name.touched && name.invalid) || (showValidation && !pokemon.name) }" />
+					<div *ngIf="(name.touched && name.invalid) || (showValidation && !pokemon.name)" class="w100 text-center">
 						<small>* El nombre del Pokemon es obligatorio</small>
 					</div>
 				</div>
 				<div class="w50 fila y_centro px10 mb15">
 					<label>Ataque</label>
-					<input type="range" min="0" max="100" name="attack" #attack="ngModel" [(ngModel)]="pokemon.attack" />
+					<div class="range">
+						<div>0</div>
+						<div>
+							<input type="range" min="0" max="100" name="attack" #attack="ngModel" [(ngModel)]="pokemon.attack" />
+							<br>
+							{{ pokemon.attack }}
+						</div>
+						<div>100</div>
+					</div>
 				</div>
 			</div>
 			<div class="w100 fila x_centro">
@@ -24,13 +32,23 @@
 				</div>
 				<div class="w50 fila y_centro px10 mb15">
 					<label>Defensa</label>
-					<input type="range" min="0" max="100" name="defense" #defense="ngModel" [(ngModel)]="pokemon.defense" />
+					<div class="range">
+						<div>0</div>
+						<div>
+							<input type="range" min="0" max="100" name="defense" #defense="ngModel" [(ngModel)]="pokemon.defense" />
+							<br>
+							{{ pokemon.defense }}
+						</div>
+						<div>100</div>
+					</div>
 				</div>
 			</div>
 			<div class="w100 fila x_centro">
 				<div class="w50 fila y_centro px10 mb15">
 					<label>Tipo</label>
-					<select name="type" #type="ngModel" [(ngModel)]="pokemon.type" required [ngClass]="{ 'borde-error': type.touched && type.invalid }">
+					<select name="type" #type="ngModel" [(ngModel)]="pokemon.type" required 
+						[ngClass]="{ 'borde-error': (type.touched && type.invalid) || (showValidation && !pokemon.type) }"
+					>
 						<option value="">Seleccione el tipo de Pokemon</option>
 						<option value="normal">Normal</option>
 						<option value="fire">Fuego</option>
@@ -38,20 +56,28 @@
 						<option value="bug">Insecto</option>
 						<option value="poison">Veneno</option>
 					</select>
-					<div *ngIf="type.touched && type.invalid" class="w100 text-center">
+					<div *ngIf="(type.touched && type.invalid) || (showValidation && !pokemon.type)" class="w100 text-center">
 						<small>* El tipo de Pokemon es obligatorio</small>
 					</div>
 				</div>
 				<div class="w50 fila y_centro px10 mb15">
 					<label>Puntos de Vida</label>
-					<input type="range" min="0" max="100" name="hp" #hp="ngModel" [(ngModel)]="pokemon.hp" required />
+					<div class="range">
+						<div>0</div>
+						<div>
+							<input type="range" min="0" max="100" name="hp" #hp="ngModel" [(ngModel)]="pokemon.hp" required />
+							<br>
+							{{ pokemon.hp }}
+						</div>
+						<div>100</div>
+					</div>
 				</div>
 			</div>
 			<div class="w100 fila x_centro px10 mb15">
 				<img *ngIf="pokemon.image" [src]="pokemon.image">
 			</div>
 			<div class="w100 fila x_centro">
-				<button type="submit" class="boton1 mx5" [disabled]="frmRegistro.invalid">
+				<button type="submit" class="boton1 mx5">
 					<fa-icon [icon]="faSave"></fa-icon>
 					&nbsp;<span>Guardar</span>
 				</button>

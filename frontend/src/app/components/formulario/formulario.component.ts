@@ -15,6 +15,7 @@ export class FormularioComponent implements OnInit {
 	faSave = faSave;
 	faX = faX;
 	pokemon: Pokemon;
+	showValidation: boolean;
 
 	constructor(
 		private _pokemonService: PokemonService,
@@ -23,6 +24,7 @@ export class FormularioComponent implements OnInit {
 		private _route: ActivatedRoute
 	){
 		this.pokemon = new Pokemon(null, '', '', 0, 0, 0, '', 1);
+		this.showValidation = false;
 	}
 
 	ngOnInit(): void {
@@ -65,11 +67,20 @@ export class FormularioComponent implements OnInit {
 		});
 	}
 
-	savePokemon(): void
+	savePokemon(frm): void
 	{
-		if(this.pokemon.id)
-			this.updatePokemon();
+		if(frm.form.valid)
+		{
+			this.showValidation = false;
+			if(this.pokemon.id)
+				this.updatePokemon();
+			else
+				this.createPokemon();
+		}
 		else
-			this.createPokemon();
+		{
+			this.showValidation = true;
+			this._toastService.warning("Existen campos obligatorios vacios");
+		}
 	}
 }

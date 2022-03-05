@@ -392,7 +392,9 @@
 	width: 75px;
 }
 
-.formulario input, .formulario select
+.formulario input[type=text], 
+.formulario input[type=url],
+.formulario select
 {
 	width: 100%;
 	max-width: 300px;
@@ -400,14 +402,6 @@
 	padding: 5px 10px;
 	outline: none;
 	border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.formulario input[type='range']
-{
-	padding: 0;
-	color: var(--purple);
-	background-color: var(--purple);
-	overflow: hidden;
 }
 
 .formulario img
@@ -423,4 +417,57 @@
 .formulario small
 {
 	color: var(--red);
+}
+
+.formulario .range
+{
+	width: 100%;
+	max-width: 300px;
+	padding: 5px 10px;
+}
+
+.formulario .range div:nth-child(1),
+.formulario .range div:nth-child(3)
+{
+	width: 10%;
+	padding: 5px 0;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+.formulario .range div:nth-child(2)
+{
+	width: 80%;
+	padding: 5px 10px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	color: var(--purple);
+}
+
+.formulario .range div:nth-child(2) input
+{
+	width: 100%;
+	padding: 0;
+	color: var(--purple);
+	background-color: var(--purple);
+	overflow: hidden;
+}
+
+@media (max-width: 520px)
+{
+	.w25
+	{
+		width: 100%;
+	}
+	.w33
+	{
+		width: 100%;
+	}
+	.w50
+	{
+		width: 100%;
+	}
 }
