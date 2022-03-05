@@ -1,0 +1,61 @@
+<div class="pagina">
+	<div class="fila">
+		<h3 class="w100 mb10 px5">Listado de Pokemon</h3>
+	</div>
+	<div class="fila x_centro">
+		<div class="w50 px5 mb10 fila x-inicio">
+			<div class="buscador">
+				<label>
+					<input class="input-text" type="text" id="txt_buscar" name="search" #search="ngModel" [(ngModel)]="buscador" placeholder="Buscar por Nombre" (input)="buscar()" (keydown.enter)="listPokemonsByName()" />
+					<fa-icon (click)="listPokemonsByName()" [icon]="faSearch" ></fa-icon>
+				</label>
+				<fa-icon *ngIf="buscador" class="btn-x" [icon]="faX" (click)="listPokemons()"></fa-icon>
+			</div>
+		</div>
+		<div class="w50 px5 mb10 fila x_fin">
+			<a [routerLink]="['/registro']" class="boton1">
+				<fa-icon [icon]="faPlus"></fa-icon>
+				&nbsp;<span>Nuevo</span>
+			</a>
+		</div>
+	</div>
+	<div class="fila x_centro">
+		<div class="w100 px5 my10">
+			<table class="tabla">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Imagen</th>
+						<th>Ataque</th>
+						<th>Defensa</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody *ngIf="pokemons.length > 0">
+					<tr *ngFor="let pokemon of pokemons">
+						<td>{{ pokemon.name }}</td>
+						<td class="text-center">
+							<img *ngIf="pokemon.image" [src]="pokemon.image">
+							<img *ngIf="!pokemon.image" src="https://e1.pngegg.com/pngimages/21/423/png-clipart-pokeball-red-and-white-pokemon-ball.png">
+						</td>
+						<td>{{ pokemon.attack }}</td>
+						<td>{{ pokemon.defense }}</td>
+						<td class="text-center">
+							<a [routerLink]="['/registro', pokemon.id]" class="mx10">
+								<fa-icon [icon]="faPencil"></fa-icon>
+							</a>
+							<a href="#" (click)="deletePokemon(pokemon)" class="mx10">
+								<fa-icon [icon]="faTrash"></fa-icon>
+							</a>
+						</td>
+					</tr>
+				</tbody>
+				<tbody *ngIf="pokemons.length <= 0">
+					<tr>
+						<td colspan="5">No existe pokemons que mostrar</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

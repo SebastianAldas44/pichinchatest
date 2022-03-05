@@ -1,0 +1,426 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+:root
+{
+	--gray1: #9FADB8;
+	--gray2: #909AAB;
+	--grayFondo: #FCFCFC;
+	--black: #999;
+	--purple: #6659EE;
+	--purple2: #6055C3;
+	--white: #fff;
+	--red: #DC3545;
+}
+
+.main
+{
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+	float: left;
+	background: var(--grayFondo)
+}
+
+.menu
+{
+	padding: 5px;
+	background-color: var(--gray1);
+}
+
+.menu span
+{
+	display: inline-block;
+	margin: 0 5px;
+	width: 16px;
+	height: 16px;
+	background-color: var(--gray2);
+	border-radius: 50%;
+}
+
+.main .contenedor
+{
+	width: 100%;
+	max-width: 1024px;
+	overflow: hidden;
+	margin: 10px auto;
+	padding: 0 10px;
+}
+
+.pagina
+{
+	width: 100%;
+	overflow: hidden;
+	float: left;
+}
+
+.fila
+{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.x_inicio
+{
+	justify-content: flex-start;
+}
+
+.x_centro
+{
+	justify-content: center;
+}
+
+.x_fin
+{
+	justify-content: flex-end;
+}
+
+.y_inicio
+{
+	align-items: flex-start;
+}
+
+.y_centro
+{
+	align-items: center;
+}
+
+.y_fin
+{
+	align-items: flex-end;
+}
+
+.w25
+{
+	width: 25%;
+}
+
+.w33
+{
+	width: 33.33%;
+}
+
+.w50
+{
+	width: 50%;
+}
+
+.w100
+{
+	width: 100%;
+}
+
+.m5
+{
+	margin: 5px;
+}
+
+.m10
+{
+	margin: 10px;
+}
+
+.m15
+{
+	margin: 15px;
+}
+
+.m20
+{
+	margin: 20px;
+}
+
+.mx5
+{
+	margin: 0 5px;
+}
+
+.mx10
+{
+	margin: 0 10px;
+}
+
+.mx15
+{
+	margin: 0 15px;
+}
+
+.mx20
+{
+	margin: 0 20px;
+}
+
+.my5
+{
+	margin: 5px 0;
+}
+
+.my10
+{
+	margin: 10px 0;
+}
+
+.my15
+{
+	margin: 15px 0;
+}
+
+.my20
+{
+	margin: 20px 0;
+}
+
+.mt5
+{
+	margin-top: 5px;
+}
+
+.mt10
+{
+	margin-top: 10px;
+}
+
+.mt15
+{
+	margin-top: 15px;
+}
+
+.mt20
+{
+	margin-top: 20px;
+}
+
+.mb5
+{
+	margin-bottom: 5px;
+}
+
+.mb10
+{
+	margin-bottom: 10px;
+}
+
+.mb15
+{
+	margin-bottom: 15px;
+}
+
+.mb20
+{
+	margin-bottom: 20px;
+}
+
+.p5
+{
+	padding: 5px;
+}
+
+.p10
+{
+	padding: 10px;
+}
+
+.p15
+{
+	padding: 15px;
+}
+
+.p20
+{
+	padding: 20px;
+}
+
+.px5
+{
+	padding: 0 5px;
+}
+
+.px10
+{
+	padding: 0 10px;
+}
+
+.px15
+{
+	padding: 0 15px;
+}
+
+.px20
+{
+	padding: 0 20px;
+}
+
+.py5
+{
+	padding: 5px 0;
+}
+
+.py10
+{
+	padding: 10px 0;
+}
+
+.py15
+{
+	padding: 15px 0;
+}
+
+.py20
+{
+	padding: 20px 0;
+}
+
+.text-center
+{
+	text-align: center;
+}
+
+.buscador
+{
+	position: relative;
+	width: 400px;
+}
+
+.buscador label
+{
+	position: relative;
+	width: 100%;
+}
+
+.buscador label .input-text
+{
+	height: 35px;
+	padding: 5px 20px;
+	padding-left: 35px;
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+}
+
+.buscador label fa-icon
+{
+	position: absolute;
+	top: 0;
+	left: 10px;
+	font-size: 1.2em;
+	cursor: pointer;
+}
+
+.buscador .btn-x
+{
+	color: var(--red);
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+.boton1 
+{
+    display: inline-block;
+    font-weight: 300;
+    padding: 5px 20px;
+    line-height: 1.3;
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: var(--purple);
+    border: 1px solid transparent;
+    font-size: .875rem;
+    border-radius: 6px;
+}
+
+.boton1:hover
+{
+	background-color: var(--purple2);
+}
+
+.tabla
+{
+	width: 100%;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	border-left: 1px solid rgba(0, 0, 0, 0.3);
+	border-right: 1px solid rgba(0, 0, 0, 0.3);
+	border-collapse: collapse;
+}
+
+.tabla tr
+{
+	color: var(--black1);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.tabla tr td, .tabla tr th
+{
+	border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.tabla tr td, .tabla tr th
+{
+	padding: 10px
+}
+
+.tabla tr td a
+{
+	color: var(--purple);
+	padding: 5px;
+	text-decoration: none;
+}
+
+.tabla img
+{
+	height: 50px;
+}
+
+.formulario
+{
+	width: 100%;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	background: var(--white)
+}
+
+.formulario label
+{
+	width: 75px;
+}
+
+.formulario input, .formulario select
+{
+	width: 100%;
+	max-width: 300px;
+	height: 35px;
+	padding: 5px 10px;
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.formulario input[type='range']
+{
+	padding: 0;
+	color: var(--purple);
+	background-color: var(--purple);
+	overflow: hidden;
+}
+
+.formulario img
+{
+	height: 200px;
+}
+
+.borde-error
+{
+	border: 1px solid var(--red) !important;
+}
+
+.formulario small
+{
+	color: var(--red);
+}

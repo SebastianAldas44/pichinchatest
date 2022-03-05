@@ -1,0 +1,65 @@
+<div class="pagina">
+	<div class="fila">
+		<h3 class="w100 mb15 px5">Registro de Pokemon</h3>
+	</div>
+	<div class="fila x_centro">
+		<form class="formulario" #frmRegistro="ngForm" (ngSubmit)="savePokemon()">
+			<div class="w100 fila x_centro">
+				<div class="w50 fila y_centro px10 mb15">
+					<label>Nombre</label>
+					<input type="text" name="name" #name="ngModel" [(ngModel)]="pokemon.name" required [ngClass]="{ 'borde-error': name.touched && name.invalid }" />
+					<div *ngIf="name.touched && name.invalid" class="w100 text-center">
+						<small>* El nombre del Pokemon es obligatorio</small>
+					</div>
+				</div>
+				<div class="w50 fila y_centro px10 mb15">
+					<label>Ataque</label>
+					<input type="range" min="0" max="100" name="attack" #attack="ngModel" [(ngModel)]="pokemon.attack" />
+				</div>
+			</div>
+			<div class="w100 fila x_centro">
+				<div class="w50 fila y_centro px10 mb15">
+					<label>Imagen</label>
+					<input type="url" placeholder="URL" name="image" #image="ngModel" [(ngModel)]="pokemon.image" />
+				</div>
+				<div class="w50 fila y_centro px10 mb15">
+					<label>Defensa</label>
+					<input type="range" min="0" max="100" name="defense" #defense="ngModel" [(ngModel)]="pokemon.defense" />
+				</div>
+			</div>
+			<div class="w100 fila x_centro">
+				<div class="w50 fila y_centro px10 mb15">
+					<label>Tipo</label>
+					<select name="type" #type="ngModel" [(ngModel)]="pokemon.type" required [ngClass]="{ 'borde-error': type.touched && type.invalid }">
+						<option value="">Seleccione el tipo de Pokemon</option>
+						<option value="normal">Normal</option>
+						<option value="fire">Fuego</option>
+						<option value="water">Agua</option>
+						<option value="bug">Insecto</option>
+						<option value="poison">Veneno</option>
+					</select>
+					<div *ngIf="type.touched && type.invalid" class="w100 text-center">
+						<small>* El tipo de Pokemon es obligatorio</small>
+					</div>
+				</div>
+				<div class="w50 fila y_centro px10 mb15">
+					<label>Puntos de Vida</label>
+					<input type="range" min="0" max="100" name="hp" #hp="ngModel" [(ngModel)]="pokemon.hp" required />
+				</div>
+			</div>
+			<div class="w100 fila x_centro px10 mb15">
+				<img *ngIf="pokemon.image" [src]="pokemon.image">
+			</div>
+			<div class="w100 fila x_centro">
+				<button type="submit" class="boton1 mx5" [disabled]="frmRegistro.invalid">
+					<fa-icon [icon]="faSave"></fa-icon>
+					&nbsp;<span>Guardar</span>
+				</button>
+				<a [routerLink]="['/']" class="boton1 mx5">
+					<fa-icon [icon]="faX"></fa-icon>
+					&nbsp;<span>Cancelar</span>
+				</a>
+			</div>
+		</form>
+	</div>
+</div>
