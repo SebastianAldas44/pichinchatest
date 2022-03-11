@@ -11,7 +11,7 @@ export class PokemonService
 	constructor(
 		private _http: HttpClient
 	){
-		this.url = Global.url; 
+		this.url = Global.url;
 	}
 
 	getAll(): Observable<any>

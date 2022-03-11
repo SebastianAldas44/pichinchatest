@@ -470,4 +470,8 @@
 	{
 		width: 100%;
 	}
+	.divtabla
+	{
+		overflow-x: scroll;
+	}
 }
